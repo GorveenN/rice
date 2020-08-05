@@ -1,0 +1,116 @@
+{
+    "languageserver": {
+        "haskell": {
+            "command": "hie-wrapper",
+            "args": [
+                "--lsp",
+                "--debug"
+            ],
+            "rootPatterns": [
+                "*.cabal",
+                "stack.yaml",
+                "cabal.project",
+                "package.yaml"
+            ],
+            "filetypes": [
+                "hs",
+                "lhs",
+                "haskell"
+            ],
+            "initializationOptions": {
+                "languageServerHaskell": {}
+            }
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": [
+                "dockerfile"
+            ],
+            "args": [
+                "--stdio"
+            ]
+        },
+        "prolog": {
+            "command": "swipl",
+            "filetypes": [
+                "pl"
+            ],
+            "args": [
+                "-g",
+                "use_module(library(lsp_server)).",
+                "-g",
+                "lsp_server:main",
+                "-t",
+                "halt",
+                "--",
+                "stdio"
+            ]
+        }
+    },
+    "list.normalMappings": {
+        "<space>": "feedkeys:\\<space>"
+    },
+    "coc.preferences.formatOnSaveFiletypes": [
+        "rust",
+        "cpp",
+        "c",
+        "json"
+    ],
+    "cSpell.showStatus": true,
+    "cSpellExt.enableDictionaries": [
+        "english",
+        "polish"
+    ],
+    "cSpell.enabled": false,
+    "cSpell.language": "en,pl",
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "88"
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length",
+        "88"
+    ],
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "diagnostic.joinMessageLines": true,
+    "diagnostic.maxWindowHeight": 20,
+    "suggest.maxPreviewWidth": 120,
+    "cSpell.enabledLanguageIds": [
+        "EN",
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "handlebars",
+        "haskell",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "latex",
+        "tex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "vim",
+        "yaml",
+        "yml"
+    ]
+}

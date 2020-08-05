@@ -2,67 +2,95 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[record]
-command=cat /tmp/recordingicon
-interval=once
-signal=9
+#[record]
+#command=cat /tmp/recordingicon
+#interval=once
+#signal=9
 
-[music]
+# [music]
+# label=🎼
+# interval=once
+# signal=11
+
+[mediaplayer]
+instance=spotify
+interval=5
+signal=10
+label=
+
+[mediaplayer]
+instance=mpd
+interval=5
+signal=10
 label=🎼
-interval=once
-signal=11
 
-[news]
-interval=once
-signal=6
+# [nvidia]
+# interval=1
+# label=🦑
 
-#[iplocate]
-#interval=30
 
-[pacpackages]
-interval=once
-signal=8
+#[news]
+#label=📰
+#interval=once
+#signal=6
+
+# [pacpackages]
+# label=📦
+# interval=once
+# signal=8
 
 [torrent]
 interval=20
 signal=7
 
 [weather]
-interval=18000
+interval=3600
 signal=5
 
-[mailbox]
-interval=180
-signal=12
+#[mailbox]
+#label=📬
+#interval=180
+#signal=12
 
-#[memory]
-#interval=30
+[memory]
+interval=30
+label=🧠
 
-#[cpu]
-#interval=15
+[cpu]
+interval=15
+label=🌡
 
 [volume]
 interval=once
 signal=10
 
-#[disk]
-#interval=60
-#command=disk /
+[disk]
+interval=60
+command=disk /
 
-#[disk]
-#interval=60
-#command=disk /home
+[disk]
+interval=60
+command=disk /home 🏠
 
-[battery]
-command=battery BAT0
-interval=5
+#[battery]
+#command=battery BAT0
+#interval=5
 
 [clock]
 label=📅
-interval=30
+command=date '+%Y %b %d (%a) %T'
+interval=1
+
+# [calendar]
+# interval=1
+# LABEL=
+# DATEFMT=+%H:%M:%S
+# # SHORTFMT=+%H:%M:%S
+# HEIGHT=180
+# WIDTH=220
 
 [internet]
 interval=10
 
-[help-icon]
-interval=once
+#[help]
+#interval=once
