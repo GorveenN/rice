@@ -64,6 +64,8 @@ call plug#end()
         filetype plugin indent on
 	set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 	set clipboard=unnamedplus
+        set smartcase
+        set incsearch
 	set nocompatible
 	set encoding=utf-8
 	set number relativenumber
@@ -309,7 +311,7 @@ call plug#end()
     colorscheme NeoSolarized
 
     " Visual highlight color
-    hi Visual gui=bold cterm=bold guibg=#1A4F4F guifg=NONE ctermbg=8 ctermfg=NONE
+    " hi Visual gui=bold cterm=bold guibg=#1A4F4F guifg=NONE ctermbg=8 ctermfg=NONE
 
     " Search results highlight
     " hi Search cterm=bold ctermbg=8 ctermfg=NONE
@@ -399,17 +401,6 @@ call plug#end()
         let g:formatdef_hass = '"hasss"'
         let g:formatters_haskell = ['hass']
         nnoremap <F4> :Autoformat<CR>
-
-    " Tmux
-        if exists('$TMUX')
-          let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-          let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        else
-          let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-          let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-        endif
-        :autocmd InsertEnter * set cul
-        :autocmd InsertLeave * set nocul
 
     " Autosaving
         let g:auto_save        = 0
