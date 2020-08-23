@@ -47,6 +47,7 @@
             ]
         }
     },
+    "clangd.semanticHighlighting": true,
     "list.normalMappings": {
         "<space>": "feedkeys:\\<space>"
     },
@@ -112,5 +113,10 @@
         "vim",
         "yaml",
         "yml"
-    ]
+    ],
+    "cmake.cmakePath": {
+      "type": "string",
+      "default": "cmake",
+      "description": "The path to CMake generator executable"
+    }
 }
