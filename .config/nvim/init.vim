@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
+    Plug 'bronson/vim-visual-star-search'
     " LaTeX
     Plug 'lervag/vimtex'
     " Snippets
@@ -50,11 +51,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Others
     " Switch source/header file
-    Plug 'vim-scripts/a.vim'
+    " Plug 'vim-scripts/a.vim'
     " Autosave
     Plug '907th/vim-auto-save'
     " kill buffer preserving layout
     Plug 'qpkorr/vim-bufkill'
+    Plug 'edkolev/vim-amake'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -76,6 +78,9 @@ call plug#end()
 	set cursorline
         set hidden
 	nnoremap c "_c
+        set nobackup
+        set nowb
+        set noswapfile
 
     " VIMRC handling
         map <leader>vimrc :e $MYVIMRC<cr>
@@ -216,8 +221,61 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""
 " fzf.vim
 """"""""""""""""""""""""""""""""""""""""""""""""
-    let $FZF_DEFAULT_COMMAND = 'if [ -d .git ]; then git ls-files; else rg --files --no-ignore-vcs; fi;'
+    " let $FZF_DEFAULT_COMMAND = 'if [ -d .git ]; then git ls-files; else rg --files --no-ignore-vcs; fi;'
     " let $FZF_DEFAULT_COMMAND = 'rg --files'
+
+    command! -bang -nargs=* Find
+    \ call fzf#vim#grep(
+    \ 'rg --column --line-number --no-heading --color=always '.shellescape(expand('')), 1,
+    \ 0 ? fzf#vim#with_preview('up:60%')
+    \ : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \ 0)
+
+    nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+
+    function! VSetSearch(cmdtype)
+      let temp = @s
+      norm! gv"sy
+      let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+      let @s = temp
+    endfunction
+
+    function! s:get_visual_selection()
+        " Why is this not a built-in Vim script function?!
+        let [line_start, column_start] = getpos("'<")[1:2]
+        let [line_end, column_end] = getpos("'>")[1:2]
+        let lines = getline(line_start, line_end)
+        if len(lines) == 0
+            return ''
+        endif
+        let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+        let lines[0] = lines[0][column_start - 1:]
+        return join(lines, "\n")
+    endfunction
+
+    function! RipgrepFzf(query, fullscreen)
+      let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+      let initial_command = printf(command_fmt, shellescape(a:query))
+      let reload_command = printf(command_fmt, '{q}')
+      let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+      let aa = get_visual_selection()
+      call fzf#vim#grep(aa, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    endfunction
+
+
+    command! -nargs=* -bang RG call RipgrepFzf(expand('<cword>'), <bang>0)
+
+    " function! Current_word(cmdtype)
+    "   let temp = @s
+    "   norm! gv"sy
+    "   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+    "   let @s = temp
+    "   echo @s
+    " endfunction
+
+
+    xnoremap <leader>* :call VSetSearch('/')
+    xnoremap <leader># :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
@@ -301,47 +359,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" Colorschemes
-""""""""""""""""""""""""""""""""""""""""""""""""
-    if (has("termguicolors"))
-      set termguicolors
-    endif
-
-    set background=dark
-    colorscheme NeoSolarized
-
-    " Visual highlight color
-    " hi Visual gui=bold cterm=bold guibg=#1A4F4F guifg=NONE ctermbg=8 ctermfg=NONE
-
-    " Search results highlight
-    " hi Search cterm=bold ctermbg=8 ctermfg=NONE
-
-    " hi Pmenu cterm=none ctermfg=223 ctermbg=239
-    " hi Pmenu cterm=none ctermfg=223 ctermbg=234
-    " hi PmenuSel cterm=bold ctermfg=239 ctermbg=109
-    " hi PmenuSbar cterm=none ctermfg=none ctermbg=239
-    " hi PmenuThumb cterm=none ctermfg=none ctermbg=243
-
-    " hi DiffAdd cterm=reverse ctermfg=142 ctermbg=235
-    " hi DiffChange cterm=reverse ctermfg=108 ctermbg=235
-    " hi DiffDelete cterm=reverse ctermfg=167 ctermbg=235
-    " hi DiffText cterm=reverse ctermfg=214 ctermbg=235
-
-    " hi Normal guibg=233 ctermbg=233
-
-    " Highhlight cursorline
-    " hi CursorLine   cterm=NONE ctermbg=darkred " ctermfg=white
-    " set cursorline
-    " autocmd InsertLeave * hi CursorLine   cterm=NONE ctermbg=235 guibg=235
-    " hi CursorLine   cterm=NONE ctermbg=235 ctermfg=NONE
-    " highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
-    " autocmd InsertLeave * highlight  CursorLine ctermbg=Yellow ctermfg=None
-    " autocmd InsertLeave * set cursorline
-
-""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax
 """"""""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
@@ -406,3 +425,40 @@ call plug#end()
         let g:auto_save        = 0
         let g:auto_save_silent = 1
         let g:auto_save_events = ["InsertLeave"]
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorschemes
+""""""""""""""""""""""""""""""""""""""""""""""""
+    if (has("termguicolors"))
+      set termguicolors
+    endif
+    set background=dark
+    colorscheme NeoSolarized
+
+    " Visual highlight color
+    " hi Visual gui=bold cterm=bold guibg=#1A4F4F guifg=NONE ctermbg=8 ctermfg=NONE
+
+    " Search results highlight
+    " hi Search cterm=bold ctermbg=8 ctermfg=NONE
+
+    " hi Pmenu cterm=none ctermfg=223 ctermbg=239
+    " hi Pmenu cterm=none ctermfg=223 ctermbg=234
+    " hi PmenuSel cterm=bold ctermfg=239 ctermbg=109
+    " hi PmenuSbar cterm=none ctermfg=none ctermbg=239
+    " hi PmenuThumb cterm=none ctermfg=none ctermbg=243
+
+    " hi DiffAdd cterm=reverse ctermfg=142 ctermbg=235
+    " hi DiffChange cterm=reverse ctermfg=108 ctermbg=235
+    " hi DiffDelete cterm=reverse ctermfg=167 ctermbg=235
+    " hi DiffText cterm=reverse ctermfg=214 ctermbg=235
+
+    " hi Normal guibg=233 ctermbg=233
+
+    " Highhlight cursorline
+    " hi CursorLine   cterm=NONE ctermbg=darkred " ctermfg=white
+    " set cursorline
+    " autocmd InsertLeave * hi CursorLine   cterm=NONE ctermbg=235 guibg=235
+    " hi CursorLine   cterm=NONE ctermbg=235 ctermfg=NONE
+    " highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
+    " autocmd InsertLeave * highlight  CursorLine ctermbg=Yellow ctermfg=None
+    " autocmd InsertLeave * set cursorline

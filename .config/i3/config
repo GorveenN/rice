@@ -85,6 +85,7 @@ bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
 
 # bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 # bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
+bindsym $mod+e			exec --no-startup-id emacs
 
 bindsym $mod+r 			exec $term -e $FILE
 bindsym $mod+Shift+r		exec --no-startup-id winresize
@@ -257,20 +258,20 @@ bindsym $mod+Shift+Right 	move right
 
 # #---Media Keys---# #
 # Volume keys
-bindsym $mod+plus		exec --no-startup-id lmc up 5
-bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
-bindsym $mod+minus 		exec --no-startup-id lmc down 5
-bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
-bindsym $mod+less 		exec --no-startup-id lmc prev
-bindsym $mod+Shift+less		exec --no-startup-id lmc replay
-bindsym $mod+greater		exec --no-startup-id lmc next
-bindsym $mod+Shift+greater	exec --no-startup-id lmc next
+bindsym $mod+plus		exec --no-startup-id pulsemixer --change-volume +5 && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+plus		exec --no-startup-id pulsemixer --change-volume +15 && pkill -RTMIN+10 i3blocks
+bindsym $mod+minus 		exec --no-startup-id pulsemixer --change-volume -5 && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+minus	exec --no-startup-id pulsemixer --change-volume -15 && pkill -RTMIN+10 i3blocks
+bindsym $mod+less 		exec --no-startup-id mpc prev
+bindsym $mod+Shift+less		exec --no-startup-id mpc seek 0%
+bindsym $mod+greater		exec --no-startup-id mpc next
+bindsym $mod+Shift+greater	exec --no-startup-id mpc next
 
 # For advancing forward/backward in an mpd song
-bindsym $mod+bracketleft 	exec --no-startup-id lmc back 10
-bindsym $mod+Shift+bracketleft 	exec --no-startup-id lmc back 120
-bindsym $mod+bracketright 	exec --no-startup-id lmc forward 10
-bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
+bindsym $mod+bracketleft 	exec --no-startup-id mpc seek -10
+bindsym $mod+Shift+bracketleft 	exec --no-startup-id mpc seek -120
+bindsym $mod+bracketright 	exec --no-startup-id mpc seek +10
+bindsym $mod+Shift+bracketright exec --no-startup-id mpc seek +120o-startup-id lmc forward 120
 
 # For screenshots and recording
 bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"

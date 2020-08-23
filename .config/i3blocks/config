@@ -20,7 +20,7 @@ label=
 
 [mediaplayer]
 instance=mpd
-interval=5
+interval=1
 signal=10
 label=🎼
 

@@ -11,9 +11,9 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export TERM="xterm-256color" # vim cursor in tmux session fix
+# export TERM="xterm-256color" # vim cursor in tmux session fix
 export BROWSER="chromium"
-export READER="zathura"
+export READER="evince"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"

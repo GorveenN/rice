@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# dependecies:
+    # zenity
+    # enca
+    # napi.sh
+    # ffmpeg
+
+# set -e
+
+cd ~/Downloads
+# FINAL_PATH="$(find -iname $(find | grep ".*\.mkv\|.*\.mp4" | sed "s/^.*\///" | rofi -dmenu) | grep -o "^.*\.")srt"
+# FINAL_PATH="$(zenity --file-selection | grep -o "^.*\.")srt"
+# FINAL_PATH="$(zenity --file-selection  --save --file-filter="*.mkv *.avi *.m4v *.mp4")"
+FINAL_PATH="$(zenity --file-selection  --save)"
+DOWNLOADED_FILE="$(echo $@ | sed "s/napiprojekt://").txt"
+
+rm "$DOWNLOADED_FILE"
+
+napi.sh download $@ 1> /dev/null
+enca -L pl -x UTF-8  -C iconv $DOWNLOADED_FILE 1> /dev/null
+ffmpeg -i $DOWNLOADED_FILE "$FINAL_PATH" 1> /dev/null
+sed -i -r "s/^\/(.*)/<i>\1<\\\i>/" $FINAL_PATH
+rm $DOWNLOADED_FILE
