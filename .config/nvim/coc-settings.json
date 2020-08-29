@@ -53,7 +53,6 @@
     },
     "coc.preferences.formatOnSaveFiletypes": [
         "rust",
-        "cpp",
         "c",
         "json"
     ],

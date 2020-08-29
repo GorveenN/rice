@@ -32,6 +32,10 @@ call plug#begin('~/.config/nvim/plugged')
 " Colorschemes
     Plug 'morhetz/gruvbox'
     Plug 'overcache/NeoSolarized'
+    Plug 'lifepillar/vim-solarized8'
+
+" Go plugin
+    " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Syntax
     Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -43,6 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'tpope/vim-rhubarb'
+    Plug 'airblade/vim-gitgutter'
 
 " NERDTree
     Plug 'scrooloose/nerdtree'
@@ -57,6 +62,11 @@ call plug#begin('~/.config/nvim/plugged')
     " kill buffer preserving layout
     Plug 'qpkorr/vim-bufkill'
     Plug 'edkolev/vim-amake'
+
+" Resize window
+    " Plug 'camspiers/animate.vim'
+    " Plug 'camspiers/lens.vim'
+    " Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -330,6 +340,9 @@ call plug#end()
     " Remap for rename current word
         nmap <leader>rn <Plug>(coc-rename)
 
+    " Go remaps
+        autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vista.vim
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -345,6 +358,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vimtex
 """"""""""""""""""""""""""""""""""""""""""""""""
+let g:tex_flavor="latex"
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vim-snippets
@@ -433,7 +447,32 @@ call plug#end()
       set termguicolors
     endif
     set background=dark
-    colorscheme NeoSolarized
+    colorscheme solarized8
+    " Default value is "normal", Setting this option to "high" or "low" does use the
+    " same Solarized palette but simply shifts some values up or down in order to
+    " expand or compress the tonal range displayed.
+    let g:neosolarized_contrast = "high"
+
+    " Special characters such as trailing whitespace, tabs, newlines, when displayed
+    " using ":set list" can be set to one of three levels depending on your needs.
+    " Default value is "normal". Provide "high" and "low" options.
+    let g:neosolarized_visibility = "normal"
+
+    " I make vertSplitBar a transparent background color. If you like the origin
+    " solarized vertSplitBar style more, set this value to 0.
+    let g:neosolarized_vertSplitBgTrans = 1
+
+    " If you wish to enable/disable NeoSolarized from displaying bold, underlined
+    " or italicized" typefaces, simply assign 1 or 0 to the appropriate variable.
+    " Default values:
+    let g:neosolarized_bold = 1
+    let g:neosolarized_underline = 1
+    let g:neosolarized_italic = 1
+
+    " Used to enable/disable "bold as bright" in Neovim terminal. If colors of bold
+    " text output by commands like `ls` aren't what you expect, you might want to
+    " try disabling this option. Default value:
+    let g:neosolarized_termBoldAsBright = 1
 
     " Visual highlight color
     " hi Visual gui=bold cterm=bold guibg=#1A4F4F guifg=NONE ctermbg=8 ctermfg=NONE
@@ -462,3 +501,7 @@ call plug#end()
     " highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
     " autocmd InsertLeave * highlight  CursorLine ctermbg=Yellow ctermfg=None
     " autocmd InsertLeave * set cursorline
+
+
+" autocmd BufNew,BufEnter *.json,*.vim,*.lua execute "CocDisable"
+" autocmd BufLeave *.json,*.vim,*.lua execute "CocEnable"
