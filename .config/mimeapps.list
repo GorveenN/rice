@@ -22,3 +22,10 @@ x-scheme-handler/unknown=chromium.desktop
 
 [Added Associations]
 application/x-shellscript=nvim.desktop;vim.desktop;
+x-scheme-handler/http=exo-web-browser.desktop;brave-browser.desktop;chromium.desktop;
+x-scheme-handler/https=exo-web-browser.desktop;brave-browser.desktop;chromium.desktop;
+inode/directory=exo-file-manager.desktop;
+x-scheme-handler/trash=exo-file-manager.desktop;
+
+[Removed Associations]
+text/x-c++src=userapp-neovim-HGUTP0.desktop;

@@ -47,13 +47,18 @@
             ]
         }
     },
+    "python.jediEnabled": true,
     "clangd.semanticHighlighting": true,
+    "clangd.fallbackFlags": [
+        "-std=c++17"
+    ],
     "list.normalMappings": {
         "<space>": "feedkeys:\\<space>"
     },
     "coc.preferences.formatOnSaveFiletypes": [
         "rust",
         "c",
+        "cpp",
         "json"
     ],
     "cSpell.showStatus": true,
@@ -63,11 +68,9 @@
     ],
     "cSpell.enabled": false,
     "cSpell.language": "en,pl",
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length",
-        "88"
-    ],
     "python.linting.flake8Args": [
         "--max-line-length",
         "88"
@@ -114,8 +117,8 @@
         "yml"
     ],
     "cmake.cmakePath": {
-      "type": "string",
-      "default": "cmake",
-      "description": "The path to CMake generator executable"
+        "type": "string",
+        "default": "cmake",
+        "description": "The path to CMake generator executable"
     }
 }

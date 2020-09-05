@@ -234,58 +234,6 @@ call plug#end()
     " let $FZF_DEFAULT_COMMAND = 'if [ -d .git ]; then git ls-files; else rg --files --no-ignore-vcs; fi;'
     " let $FZF_DEFAULT_COMMAND = 'rg --files'
 
-    command! -bang -nargs=* Find
-    \ call fzf#vim#grep(
-    \ 'rg --column --line-number --no-heading --color=always '.shellescape(expand('')), 1,
-    \ 0 ? fzf#vim#with_preview('up:60%')
-    \ : fzf#vim#with_preview('right:50%:hidden', '?'),
-    \ 0)
-
-    nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
-
-    function! VSetSearch(cmdtype)
-      let temp = @s
-      norm! gv"sy
-      let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-      let @s = temp
-    endfunction
-
-    function! s:get_visual_selection()
-        " Why is this not a built-in Vim script function?!
-        let [line_start, column_start] = getpos("'<")[1:2]
-        let [line_end, column_end] = getpos("'>")[1:2]
-        let lines = getline(line_start, line_end)
-        if len(lines) == 0
-            return ''
-        endif
-        let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-        let lines[0] = lines[0][column_start - 1:]
-        return join(lines, "\n")
-    endfunction
-
-    function! RipgrepFzf(query, fullscreen)
-      let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-      let initial_command = printf(command_fmt, shellescape(a:query))
-      let reload_command = printf(command_fmt, '{q}')
-      let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-      let aa = get_visual_selection()
-      call fzf#vim#grep(aa, 1, fzf#vim#with_preview(spec), a:fullscreen)
-    endfunction
-
-
-    command! -nargs=* -bang RG call RipgrepFzf(expand('<cword>'), <bang>0)
-
-    " function! Current_word(cmdtype)
-    "   let temp = @s
-    "   norm! gv"sy
-    "   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-    "   let @s = temp
-    "   echo @s
-    " endfunction
-
-
-    xnoremap <leader>* :call VSetSearch('/')
-    xnoremap <leader># :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
@@ -339,6 +287,9 @@ call plug#end()
         xmap <leader>f  <Plug>(coc-format-selected)
     " Remap for rename current word
         nmap <leader>rn <Plug>(coc-rename)
+    " Remaps for spell checker
+        vmap <leader>a <Plug>(coc-codeaction-selected)
+        nmap <leader>a <Plug>(coc-codeaction-selected)
 
     " Go remaps
         autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -407,21 +358,21 @@ let g:tex_flavor="latex"
         let nerdchristmastree=1
         let g:NERDTreeMinimalUI = 1
         let g:nerdtreewinsize = 25
-        let g:NERDTreeDirArrowExpandable = ''
-        let g:NERDTreeDirArrowCollapsible = '▼'
+        let g:NERDTreeDirArrowExpandable = '▸'
+        let g:NERDTreeDirArrowCollapsible = '▾'
         let NERDTreeAutoCenter=1
-        let g:NERDTreeIndicatorMapCustom = {
-                \ "modified"  : "✹",
-                \ "staged"    : "➕",
-                \ "untracked" : "⭐",
-                \ "renamed"   : "",
-                \ "unmerged"  : "═",
-                \ "deleted"   : "✖",
-                \ "dirty"     : "✗",
-                \ "clean"     : "✔︎",
-                \ 'ignored'   : '☒',
-                \ "unknown"   : "?"
-                \ }
+        " let g:NERDTreeIndicatorMapCustom = {
+        "         \ "modified"  : "✹",
+        "         \ "staged"    : "➕",
+        "         \ "untracked" : "⭐",
+        "         \ "renamed"   : "",
+        "         \ "unmerged"  : "═",
+        "         \ "deleted"   : "✖",
+        "         \ "dirty"     : "✗",
+        "         \ "clean"     : "✔︎",
+        "         \ 'ignored'   : '☒',
+        "         \ "unknown"   : "?"
+        "         \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Others
