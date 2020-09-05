@@ -10,7 +10,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 # export TERM="xterm-256color" # vim cursor in tmux session fix
 export BROWSER="chromium"
 export READER="evince"

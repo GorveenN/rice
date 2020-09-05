@@ -1,84 +1,5 @@
 {
-    "languageserver": {
-        "haskell": {
-            "command": "hie-wrapper",
-            "args": [
-                "--lsp",
-                "--debug"
-            ],
-            "rootPatterns": [
-                "*.cabal",
-                "stack.yaml",
-                "cabal.project",
-                "package.yaml"
-            ],
-            "filetypes": [
-                "hs",
-                "lhs",
-                "haskell"
-            ],
-            "initializationOptions": {
-                "languageServerHaskell": {}
-            }
-        },
-        "dockerfile": {
-            "command": "docker-langserver",
-            "filetypes": [
-                "dockerfile"
-            ],
-            "args": [
-                "--stdio"
-            ]
-        },
-        "prolog": {
-            "command": "swipl",
-            "filetypes": [
-                "pl"
-            ],
-            "args": [
-                "-g",
-                "use_module(library(lsp_server)).",
-                "-g",
-                "lsp_server:main",
-                "-t",
-                "halt",
-                "--",
-                "stdio"
-            ]
-        }
-    },
-    "python.jediEnabled": true,
-    "clangd.semanticHighlighting": true,
-    "clangd.fallbackFlags": [
-        "-std=c++17"
-    ],
-    "list.normalMappings": {
-        "<space>": "feedkeys:\\<space>"
-    },
-    "coc.preferences.formatOnSaveFiletypes": [
-        "rust",
-        "c",
-        "cpp",
-        "json"
-    ],
-    "cSpell.showStatus": true,
-    "cSpellExt.enableDictionaries": [
-        "english",
-        "polish"
-    ],
     "cSpell.enabled": false,
-    "cSpell.language": "en,pl",
-    "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.formatting.provider": "black",
-    "python.linting.flake8Args": [
-        "--max-line-length",
-        "88"
-    ],
-    "coc.preferences.extensionUpdateCheck": "daily",
-    "diagnostic.joinMessageLines": true,
-    "diagnostic.maxWindowHeight": 20,
-    "suggest.maxPreviewWidth": 120,
     "cSpell.enabledLanguageIds": [
         "EN",
         "asciidoc",
@@ -116,9 +37,60 @@
         "yaml",
         "yml"
     ],
+    "cSpell.language": "en,pl",
+    "cSpell.showStatus": true,
+    "cSpellExt.enableDictionaries": [
+        "english",
+        "polish"
+    ],
+    "clangd.fallbackFlags": [
+        "-std=c++17"
+    ],
+    "clangd.semanticHighlighting": true,
     "cmake.cmakePath": {
         "type": "string",
         "default": "cmake",
         "description": "The path to CMake generator executable"
-    }
+    },
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "rust",
+        "c",
+        "cpp",
+        "json"
+    ],
+    "diagnostic.joinMessageLines": true,
+    "diagnostic.maxWindowHeight": 20,
+    "languageserver": {
+        "haskell": {
+            "command": "hie-wrapper",
+            "args": [
+                "--lsp",
+                "--debug"
+            ],
+            "rootPatterns": [
+                "*.cabal",
+                "stack.yaml",
+                "cabal.project",
+                "package.yaml"
+            ],
+            "filetypes": [
+                "hs",
+                "lhs",
+                "haskell"
+            ],
+            "initializationOptions": {
+                "languageServerHaskell": {}
+            }
+        }
+    },
+    "python.formatting.provider": "black",
+    "python.jediEnabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length",
+        "88"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "suggest.maxPreviewWidth": 120
 }
