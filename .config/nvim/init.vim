@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
     Plug 'bronson/vim-visual-star-search'
     " LaTeX
@@ -67,6 +67,12 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'camspiers/animate.vim'
     " Plug 'camspiers/lens.vim'
     " Plug 'ryanoasis/vim-devicons'
+
+" built-in lsp
+    Plug 'neovim/nvim-lsp'
+    Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'nathunsmitty/diagnostic-nvim'
+    Plug 'nvim-lua/completion-nvim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -238,61 +244,61 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""
-    " Plugins
-        let g:coc_global_extensions =  [
-            \ 'coc-python',
-            \ 'coc-rls',
-            \ 'coc-snippets'
-            \ ]
+    " " Plugins
+    "     let g:coc_global_extensions =  [
+    "         \ 'coc-python',
+    "         \ 'coc-rls',
+    "         \ 'coc-snippets'
+    "         \ ]
 
-    " Use <c-space> to trigger completion.
-        inoremap <silent><expr> <c-space> coc#refresh()
+    " " Use <c-space> to trigger completion.
+    "     inoremap <silent><expr> <c-space> coc#refresh()
 
-    " Use K to show documentation in preview window
-        function! s:show_documentation()
-          if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-          else
-            call CocAction('doHover')
-          endif
-        endfunction
-        nnoremap <silent> K :call <SID>show_documentation()<CR>
+    " " Use K to show documentation in preview window
+    "     function! s:show_documentation()
+    "       if (index(['vim','help'], &filetype) >= 0)
+    "         execute 'h '.expand('<cword>')
+    "       else
+    "         call CocAction('doHover')
+    "       endif
+    "     endfunction
+    "     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-    " Autocompletion
-	inoremap <silent><expr> <TAB>
-	  \ pumvisible() ? coc#_select_confirm() :
-	  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-	  \ <SID>check_back_space() ? "\<TAB>" :
-	  \ coc#refresh()
+    " " Autocompletion
+	" inoremap <silent><expr> <TAB>
+	  " \ pumvisible() ? coc#_select_confirm() :
+	  " \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	  " \ <SID>check_back_space() ? "\<TAB>" :
+	  " \ coc#refresh()
 
-	function! s:check_back_space() abort
-	  let col = col('.') - 1
-	  return !col || getline('.')[col - 1]  =~# '\s'
-	endfunction
+	" function! s:check_back_space() abort
+	  " let col = col('.') - 1
+	  " return !col || getline('.')[col - 1]  =~# '\s'
+	" endfunction
 
-	let g:coc_snippet_next = '<itab>'
+	" let g:coc_snippet_next = '<itab>'
 
-    " Use `[g` and `]g` to navigate diagnostics
-	nmap <silent> [g <Plug>(coc-diagnostic-prev)
-	nmap <silent> ]g <Plug>(coc-diagnostic-next)
+    " " Use `[g` and `]g` to navigate diagnostics
+	" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+	" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-    " Remap keys for gotos
-	nmap <silent> gd <Plug>(coc-definition)
-	nmap <silent> gy <Plug>(coc-type-definition)
-	nmap <silent> gi <Plug>(coc-implementation)
-	nmap <silent> gr <Plug>(coc-references)
-	" nmap <leader>rn  <Plug>(coc-refactor)
-        nmap <leader>qf  <Plug>(coc-fix-current)
-        nmap <F3> <Plug>(coc-format)
-        xmap <leader>f  <Plug>(coc-format-selected)
-    " Remap for rename current word
-        nmap <leader>rn <Plug>(coc-rename)
-    " Remaps for spell checker
-        vmap <leader>a <Plug>(coc-codeaction-selected)
-        nmap <leader>a <Plug>(coc-codeaction-selected)
+    " " Remap keys for gotos
+	" nmap <silent> gd <Plug>(coc-definition)
+	" nmap <silent> gy <Plug>(coc-type-definition)
+	" nmap <silent> gi <Plug>(coc-implementation)
+	" nmap <silent> gr <Plug>(coc-references)
+	" " nmap <leader>rn  <Plug>(coc-refactor)
+    "     nmap <leader>qf  <Plug>(coc-fix-current)
+    "     nmap <F3> <Plug>(coc-format)
+    "     xmap <leader>f  <Plug>(coc-format-selected)
+    " " Remap for rename current word
+    "     nmap <leader>rn <Plug>(coc-rename)
+    " " Remaps for spell checker
+    "     vmap <leader>a <Plug>(coc-codeaction-selected)
+    "     nmap <leader>a <Plug>(coc-codeaction-selected)
 
-    " Go remaps
-        autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+    " " Go remaps
+    "     autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vista.vim
@@ -456,3 +462,20 @@ let g:tex_flavor="latex"
 
 " autocmd BufNew,BufEnter *.json,*.vim,*.lua execute "CocDisable"
 " autocmd BufLeave *.json,*.vim,*.lua execute "CocEnable"
+
+" lsp config
+lua require("lsp")
+setlocal omnifunc=v:lua.vim.lsp.omnifunc
+" Show errors after 1 second
+set updatetime=1000
+let g:diagnostic_insert_delay = 1
+let g:diagnostic_show_sign = 1
+let g:diagnostic_enable_virtual_text = 1
+" Complete parentheses for functions
+let g:completion_enable_auto_paren = 1
+" Work with endwise
+let g:completion_confirm_key = "\<C-y>"
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+" Avoid showing message extra message when using completion
+set shortmess+=c
