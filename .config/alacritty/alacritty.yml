@@ -35,3 +35,6 @@ colors:
     white:   '#fdf6e3' # base3
 
 
+font:
+    size: 12
+

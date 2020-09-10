@@ -11,6 +11,9 @@ source $HOME/.config/nvim/config/plugins/autoformat.vim
 source $HOME/.config/nvim/config/plugins/coc.vim
 source $HOME/.config/nvim/config/plugins/fzf.vim
 source $HOME/.config/nvim/config/plugins/nerdtree.vim
+" source $HOME/.config/nvim/config/plugins/rainbox.vim
+" source $HOME/.config/nvim/config/plugins/vimspector.vim
 source $HOME/.config/nvim/config/plugins/vimtex.vim
+source $HOME/.config/nvim/config/plugins/vimwiki.vim
 source $HOME/.config/nvim/config/plugins/vista.vim
 

@@ -29,7 +29,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'overcache/NeoSolarized'
     Plug 'lifepillar/vim-solarized8'
-
+    Plug 'altercation/vim-colors-solarized'
 " Syntax
     Plug 'jackguo380/vim-lsp-cxx-highlight'
     Plug 'cespare/vim-toml'
@@ -41,10 +41,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'tpope/vim-rhubarb'
     Plug 'airblade/vim-gitgutter'
+    Plug 'junegunn/gv.vim'
 
 " NERDTree
     Plug 'scrooloose/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
+    " Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Others
@@ -52,4 +53,20 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'qpkorr/vim-bufkill'
     " icons
     Plug 'ryanoasis/vim-devicons'
+    " rainbow branckets
+    Plug 'luochen1990/rainbow'
+    " debugger
+    Plug 'puremourning/vimspector'
+    " personal wiki
+    Plug 'vimwiki/vimwiki'
+    " markdown preview
+    Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+    Plug 'neomake/neomake'
+
 call plug#end()
+
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
