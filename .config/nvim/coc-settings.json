@@ -57,7 +57,8 @@
         "rust",
         "c",
         "cpp",
-        "json"
+        "json",
+        "python"
     ],
     "diagnostic.joinMessageLines": true,
     "diagnostic.maxWindowHeight": 20,

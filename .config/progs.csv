@@ -54,13 +54,13 @@ A,task-spooler,queues commands or files for download.
 A,simple-mtpfs-git,enables the mounting of cell phones.
 G,https://github.com/lukesmithxyz/dmenu.git,runs commands and provides a UI for selection.
 G,https://github.com/lukesmithxyz/st.git,is my custom build of suckless's terminal emulator.
-,i3-gaps,
-,i3blocks,
-,i3lock,
-,alacritty,
-,arc-gtk-theme,
-,arc-icon-theme,
-,chromium,
+,i3-gaps,manages windows in a sane way.
+,i3blocks,adds statusbar to i3.
+,i3lock,adds lockscreen functionality to i3.
+,alacritty, is gpu-accelerated terminal emulator.
+,arc-gtk-theme, is eye-pleasing theme for gtk applications.
+,arc-icon-theme, is eye-pleasing icon pack for gtk applications.
+,chromium, is decent web browser.
 ,clang,
 ,cmake,
 ,cups,

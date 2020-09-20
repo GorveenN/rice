@@ -147,7 +147,8 @@ bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmp
 
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
-bindsym $mod+c			exec --no-startup-id cabl
+# bindsym $mod+c			exec --no-startup-id cabl
+bindsym $mod+c                  move workspace to output right
 bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
