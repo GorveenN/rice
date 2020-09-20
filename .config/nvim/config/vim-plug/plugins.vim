@@ -53,15 +53,25 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'qpkorr/vim-bufkill'
     " icons
     Plug 'ryanoasis/vim-devicons'
-    " rainbow branckets
-    Plug 'luochen1990/rainbow'
+    " rainbow brackets
+    " Plug 'luochen1990/rainbow'
     " debugger
-    Plug 'puremourning/vimspector'
+    " Plug 'puremourning/vimspector'
     " personal wiki
-    Plug 'vimwiki/vimwiki'
+    " Plug 'vimwiki/vimwiki'
     " markdown preview
     Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
     Plug 'neomake/neomake'
+    " Plug 'easymotion/vim-easymotion'
+    " Plug 'liuchengxu/vim-which-key'
+
+    " nvim builtin lsp
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'nvim-lua/completion-nvim'
+    " Plug 'nvim-treesitter/nvim-treesitter'
+
+    " cmake
+    Plug 'cdelledonne/vim-cmake'
 
 call plug#end()
 
