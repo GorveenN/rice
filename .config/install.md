@@ -90,6 +90,13 @@ sudo systemctl enable reflector
 --sort age
 ```
 
+## Bluetooth
+```
+sudo pacman -S bluez blueman bluez-utils pulseaudio-modules-bt
+echo "load-module module-bluetooth-policy" >> /etc/pulse/system.pa
+echo "load-module module-bluetooth-discover" >> /etc/pulse/system.pa
+```
+
 ## backlight
 ```
 sudo pacman -S light
