@@ -283,14 +283,12 @@ bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
 bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 
 # #---Extra XF86 Keys---# #
-bindsym XF86AudioMute		exec --no-startup-id lmc mute
-bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5
-bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
-bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
-bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5
-bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc up 10
-bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
-bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
+bindsym XF86AudioMute	                exec --no-startup-id pulsemixer --toggle-mute && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume	        exec --no-startup-id pulsemixer --change-volume -5 && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id pulsemixer --change-volume -10 && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume	        exec --no-startup-id pulsemixer --change-volume +5 && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id pulsemixer --change-volume +10 && pkill -RTMIN+10 i3blocks
+bindsym XF86PowerOff		        exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 ##bindsym XF86Copy		exec
 ##bindsym XF86Open		exec
 ##bindsym XF86Paste		exec
@@ -350,8 +348,8 @@ bindsym XF86Search		exec $BROWSER https://google.com
 ##bindsym XF86Finance		exec
 ##bindsym XF86Game		exec
 bindsym XF86Shop		exec $BROWSER https://ebay.com
-bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 5
+bindsym XF86MonBrightnessUp	exec --no-startup-id light -A 5
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
 #bindsym XF86KbdLightOnOff	exec
