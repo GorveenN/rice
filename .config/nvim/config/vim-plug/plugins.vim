@@ -68,11 +68,20 @@ call plug#begin('~/.config/nvim/plugged')
     " nvim builtin lsp
     " Plug 'neovim/nvim-lspconfig'
     " Plug 'nvim-lua/completion-nvim'
+    " Plug 'nvim-lua/diagnostic-nvim'
+    " Plug 'nvim-lua/lsp-status.nvim'
     " Plug 'nvim-treesitter/nvim-treesitter'
+    " Plug 'steelsojka/completion-buffers'
 
     " cmake
     Plug 'cdelledonne/vim-cmake'
 
+    " All this are to get a Jupyter like experience
+    " Plug 'hkupty/iron.nvim'
+    " Plug 'kana/vim-textobj-user'
+    " Plug 'kana/vim-textobj-line'
+    " Plug 'GCBallesteros/vim-textobj-hydrogen'
+    " Plug 'GCBallesteros/jupytext.vim'
 call plug#end()
 
 " Automatically install missing plugins on startup

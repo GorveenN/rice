@@ -59,3 +59,6 @@ map <leader>vimrc :e $MYVIMRC<cr>
 autocmd bufwritepost init.vim source $MYVIMRC
 
 let g:tex_flavor="latex"
+
+" set completeopt=menuone,noinsert,noselect
+" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']

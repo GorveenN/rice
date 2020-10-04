@@ -1,17 +1,13 @@
 #!/bin/sh
 
 # dependecies:
-    # zenity
-    # enca
-    # napi.sh
+    # iconv
+    # uchardet
     # ffmpeg
 
-# set -e
-
+set -e
 FINAL_PATH="$(echo $@ | grep -o ".*\.")srt"
-
-echo $DOWNLOADED_FILE
-enca -L pl -x UTF-8  -C iconv $@ 1> /dev/null
+enca -L pl -x UTF-8  -C iconv $@ 1> /dev/null || iconv -f $(uchardet $@) -t UTF-8 $@ -o $@
 ffmpeg -i $@ "$FINAL_PATH" 1> /dev/null
 sed -i -r "s/^\/(.*)/<i>\1<\/i>/" $FINAL_PATH
 sed -i -e "s/\r//g" $FINAL_PATH

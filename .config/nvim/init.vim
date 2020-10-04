@@ -9,7 +9,9 @@ source $HOME/.config/nvim/config/general/colorscheme.vim
 source $HOME/.config/nvim/config/plugins/airline.vim
 source $HOME/.config/nvim/config/plugins/autoformat.vim
 source $HOME/.config/nvim/config/plugins/coc.vim
+source $HOME/.config/nvim/config/plugins/fugitive.vim
 source $HOME/.config/nvim/config/plugins/fzf.vim
+" source $HOME/.config/nvim/config/plugins/jupyter.vim
 source $HOME/.config/nvim/config/plugins/nerdtree.vim
 " source $HOME/.config/nvim/config/plugins/nvimlsp.vim
 " source $HOME/.config/nvim/config/plugins/rainbox.vim
