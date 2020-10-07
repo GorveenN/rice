@@ -75,13 +75,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     " cmake
     Plug 'cdelledonne/vim-cmake'
-
-    " All this are to get a Jupyter like experience
-    " Plug 'hkupty/iron.nvim'
-    " Plug 'kana/vim-textobj-user'
-    " Plug 'kana/vim-textobj-line'
-    " Plug 'GCBallesteros/vim-textobj-hydrogen'
-    " Plug 'GCBallesteros/jupytext.vim'
+    Plug 'stsewd/fzf-checkout.vim'
 call plug#end()
 
 " Automatically install missing plugins on startup

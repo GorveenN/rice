@@ -74,6 +74,7 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gh :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
+nnoremap <leader>gc :GCheckout<CR>
 
 " Mapping to open NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -84,3 +85,4 @@ nnoremap <F4> :Autoformat<CR>
 " Vista
 nnoremap <F8> :Vista!!<CR>
 nnoremap <silent><leader>vf :Vista finder coc<CR>
+
