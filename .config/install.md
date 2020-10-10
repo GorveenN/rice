@@ -114,3 +114,9 @@ Section "InputClass"
     Option "NaturalScrolling" "true"
 EndSection
 ```
+
+# Qt theme
+```
+yay -S qt5ct qt5-styleplugins
+```
+Run qt5ct and choose desired theme.
