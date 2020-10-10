@@ -190,10 +190,21 @@ set $ws3 "3:📁"
 set $ws4 "4:"
 set $ws5 "5:"
 set $ws6 "6:🧠"
-set $ws7 "7:"
+set $ws7 "7:@"
 set $ws8 "8:"
 set $ws9 "9:⚙"
 set $ws10 "10:"
+
+workspace $ws1  output primary
+workspace $ws2  output primary
+workspace $ws3  output primary
+workspace $ws4  output primary
+workspace $ws5  output primary
+workspace $ws6  output primary
+workspace $ws7  output  HDMI-0 primary
+workspace $ws8  output  HDMI-0 primary
+workspace $ws9  output  HDMI-0 primary
+workspace $ws10 output  HDMI-0 primary
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
@@ -223,7 +234,7 @@ for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
 # for_window [title="GIMP Startup"] move workspace $ws5
 # for_window [class="Gimp"] move workspace $ws5
-for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] resize set 1000 800
 for_window [window_role="GtkFileChooserDialog"] move position center
 for_window [title="Default - Wine desktop"] floating enable
 
@@ -373,13 +384,22 @@ bindsym XF86WLAN		exec $netrefresh
 # assign [class="Spotify"] $ws8
 
 for_window [class="Yad"] floating enable
-for_window [class="Spotify"] move to workspace $ws8
-# for_window [class="Slack"] move to workspace $ws10
-# for_window [class="Wine"] move to workspace $ws5
-for_window [title="*Steam*"] move to workspace $ws5
-for_window [class="*Steam*"] move to workspace $ws5
-assign [title="*Steam*"] $ws5
+for_window [class=".*Spotify.*"] move to workspace $ws8
+for_window [class=".*zoom.*"] move to workspace $ws9
+assign [class=".*Spotify.*"] $ws8
+assign [class=".*spotify.*"] $ws8
+assign [class="spotify"] $ws8
+assign [class="Spotify"] $ws8
+assign [class=".*discord.*"] $ws10
+assign [class=".*Slack.*"] $ws10
+assign [class=".*Wine.*"] $ws5
+assign [class=".*Steam.*"] $ws5
+assign [class=".*zoom.*"] $ws9
+assign [class=".*Thunderbird.*"] $ws7
+assign [class="brave-browser"] $ws1
+
 
 exec --no-startup-id discord
 exec --no-startup-id spotify
 exec --no-startup-id $BROWSER
+exec --no-startup-id thunderbird
