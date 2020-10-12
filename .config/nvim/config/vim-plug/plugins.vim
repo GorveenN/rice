@@ -15,7 +15,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
     Plug 'bronson/vim-visual-star-search'
     " LaTeX
@@ -66,12 +66,12 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'liuchengxu/vim-which-key'
 
     " nvim builtin lsp
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'nvim-lua/completion-nvim'
-    " Plug 'nvim-lua/diagnostic-nvim'
-    " Plug 'nvim-lua/lsp-status.nvim'
-    " Plug 'nvim-treesitter/nvim-treesitter'
-    " Plug 'steelsojka/completion-buffers'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'steelsojka/completion-buffers'
 
     " cmake
     Plug 'cdelledonne/vim-cmake'
