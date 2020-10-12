@@ -60,6 +60,7 @@
         "json",
         "python"
     ],
+    "rust.clippy_preference": "on",
     "diagnostic.joinMessageLines": true,
     "diagnostic.maxWindowHeight": 20,
     "languageserver": {

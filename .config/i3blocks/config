@@ -81,13 +81,13 @@ label=📅
 command=date '+%Y %b %d (%a) %T'
 interval=1
 
-# [calendar]
-# interval=1
-# LABEL=
-# DATEFMT=+%H:%M:%S
-# # SHORTFMT=+%H:%M:%S
-# HEIGHT=180
-# WIDTH=220
+[calendar]
+interval=1
+LABEL=
+DATEFMT=+%H:%M:%S
+# SHORTFMT=+%H:%M:%S
+HEIGHT=180
+WIDTH=220
 
 [internet]
 interval=10
