@@ -12,7 +12,7 @@ lsp_status.register_progress()
 
 local on_attach_common = function(client)
 	print("LSP started.");
-        -- api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	require'completion'.on_attach()
 	require'diagnostic'.on_attach()
 	lsp_status.on_attach(client)
@@ -24,7 +24,7 @@ local on_attach_common = function(client)
 	map('n','gr',        '<cmd>lua vim.lsp.buf.references()<CR>')
 	map('n','gs',        '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','gi',        '<cmd>lua vim.lsp.buf.implementation()<CR>')
-	map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+	map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
 

@@ -21,3 +21,27 @@ source $HOME/.config/nvim/config/plugins/vimwiki.vim
 source $HOME/.config/nvim/config/plugins/vista.vim
 
 lua require("lsp_config")
+lua require("treesitter")
+
+
+let g:completion_chain_complete_list = {
+			\'default' : {
+			\	'default' : [
+			\		{'complete_items' : ['lsp', 'snippet', 'buffer']},
+			\		{'mode' : 'file'}
+			\	],
+			\	},
+			\'c' : [
+			\	{'complete_items': ['ts', 'lsp', 'snippet']}
+			\	],
+			\'python' : [
+			\	{'complete_items': ['ts', 'lsp', 'snippet']}
+			\	],
+			\'lua' : [
+			\	{'complete_items': ['ts', 'lsp', 'snippet']}
+			\	],
+			\}
+
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+
