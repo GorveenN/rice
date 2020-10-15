@@ -88,7 +88,7 @@ bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
 bindsym $mod+e			exec --no-startup-id emacs
 
 bindsym $mod+r 			exec $term -e $FILE
-bindsym $mod+Shift+r		exec --no-startup-id winresize
+bindsym $mod+Shift+r		resize set 1920 1080, move position 2560 40
 
 bindsym $mod+t			split toggle
 # bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
@@ -385,7 +385,7 @@ bindsym XF86WLAN		exec $netrefresh
 
 for_window [class="Yad"] floating enable
 for_window [class=".*Spotify.*"] move to workspace $ws8
-for_window [class=".*zoom.*"] move to workspace $ws9
+# for_window [class=".*zoom.*"] move to workspace $ws9
 assign [class=".*Spotify.*"] $ws8
 assign [class=".*spotify.*"] $ws8
 assign [class="spotify"] $ws8
@@ -394,7 +394,7 @@ assign [class=".*discord.*"] $ws10
 assign [class=".*Slack.*"] $ws10
 assign [class=".*Wine.*"] $ws5
 assign [class=".*Steam.*"] $ws5
-assign [class=".*zoom.*"] $ws9
+# assign [class=".*zoom.*"] $ws9
 assign [class=".*Thunderbird.*"] $ws7
 assign [class="brave-browser"] $ws1
 

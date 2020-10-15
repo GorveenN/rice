@@ -5,7 +5,8 @@ let g:coc_global_extensions =  [
     \ 'coc-snippets',
     \ 'coc-python',
     \ 'coc-cspell-dicts',
-    \ 'coc-rls',
+    \ 'coc-rust-analyzer',
+    \ 'coc-highlight',
     \ 'coc-json',
     \ 'coc-cmake',
     \ 'coc-clangd',
@@ -51,3 +52,4 @@ nmap <leader>rn  <Plug>(coc-rename)
 nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <F3> <Plug>(coc-format)
 
+autocmd CursorHold * silent call CocActionAsync('highlight')

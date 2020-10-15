@@ -47,6 +47,9 @@
         "-std=c++17"
     ],
     "clangd.semanticHighlighting": true,
+    "clangd.arguments": [
+        "--clang-tidy"
+    ],
     "cmake.cmakePath": {
         "type": "string",
         "default": "cmake",
@@ -60,30 +63,30 @@
         "json",
         "python"
     ],
+    "highlight.disableLanguages": [
+        "python"
+    ],
+    "coc.preferences.colorSupport": true,
     "rust.clippy_preference": "on",
     "diagnostic.joinMessageLines": true,
     "diagnostic.maxWindowHeight": 20,
     "languageserver": {
         "haskell": {
-            "command": "hie-wrapper",
+            "command": "haskell-language-server-wrapper",
             "args": [
-                "--lsp",
-                "--debug"
+                "--lsp"
             ],
             "rootPatterns": [
                 "*.cabal",
                 "stack.yaml",
                 "cabal.project",
-                "package.yaml"
+                "package.yaml",
+                "hie.yaml"
             ],
             "filetypes": [
-                "hs",
-                "lhs",
-                "haskell"
-            ],
-            "initializationOptions": {
-                "languageServerHaskell": {}
-            }
+                "haskell",
+                "lhaskell"
+            ]
         }
     },
     "python.formatting.provider": "black",
