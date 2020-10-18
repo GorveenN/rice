@@ -34,7 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jackguo380/vim-lsp-cxx-highlight'
     Plug 'cespare/vim-toml'
     Plug 'PotatoesMaster/i3-vim-syntax'
-    Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
+    Plug 'sheerun/vim-polyglot'
 
 " Git wrapper
     Plug 'tpope/vim-fugitive'
