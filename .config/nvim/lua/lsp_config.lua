@@ -54,6 +54,11 @@ nvim_lsp.rust_analyzer.setup {
     capabilities = lsp_status.capabilities
 }
 
+nvim_lsp.hls.setup {
+    on_attach = on_attach_common,
+    capabilities = lsp_status.capabilities
+}
+
 local strategy = { 'exact', 'substring', 'fuzzy' }
 vim.g.completion_matching_strategy_list = strategy
 vim.g.diagnostic_enable_virtual_text = 1

@@ -31,15 +31,6 @@ let g:completion_chain_complete_list = {
 			\		{'mode' : 'file'}
 			\	],
 			\	},
-			\'c' : [
-			\	{'complete_items': ['ts', 'lsp', 'snippet']}
-			\	],
-			\'python' : [
-			\	{'complete_items': ['ts', 'lsp', 'snippet']}
-			\	],
-			\'lua' : [
-			\	{'complete_items': ['ts', 'lsp', 'snippet']}
-			\	],
 			\}
 
 " Use completion-nvim in every buffer
