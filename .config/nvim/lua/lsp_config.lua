@@ -24,7 +24,7 @@ local on_attach_common = function(client)
 	map('n','gr',        '<cmd>lua vim.lsp.buf.references()<CR>')
 	map('n','gs',        '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','gi',        '<cmd>lua vim.lsp.buf.implementation()<CR>')
-	map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+	map('n','gt',        '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
 
@@ -32,7 +32,7 @@ local on_attach_common = function(client)
 	map('n','<leader>ah', '<cmd>lua vim.lsp.buf.hover()<CR>')
 	map('n','<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 	map('n','<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
-	map('n','<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
+	map('n','<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 	-- Few language severs support these three
 	map('n','<leader>=',  '<cmd>lua vim.lsp.buf.formatting()<CR>')

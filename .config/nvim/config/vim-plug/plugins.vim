@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'honza/vim-snippets'
     " Css colors
     Plug 'ap/vim-css-color'
+    Plug 'tpope/vim-unimpaired'
 
 " Colorschemes
     Plug 'morhetz/gruvbox'
