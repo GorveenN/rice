@@ -120,3 +120,12 @@ EndSection
 yay -S qt5ct qt5-styleplugins
 ```
 Run qt5ct and choose desired theme.
+
+# droidcam
+
+yay -S droidcam
+
+echo "options v4l2loopback_dc width=960 height=720"
+
+# fix clock after windows boot
+sudo ntpd -qg

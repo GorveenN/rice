@@ -58,6 +58,7 @@
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnSaveFiletypes": [
         "rust",
+        "haskell",
         "c",
         "cpp",
         "json",
@@ -86,14 +87,19 @@
             "filetypes": [
                 "haskell",
                 "lhaskell"
-            ]
+            ],
+            "initializationOptions": {
+                "haskell": {
+                    "formattingProvider": "brittany"
+                }
+            }
         }
     },
     "python.formatting.provider": "black",
     "python.jediEnabled": true,
     "python.linting.flake8Args": [
         "--max-line-length",
-        "88"
+        "240"
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
