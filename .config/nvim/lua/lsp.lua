@@ -109,35 +109,42 @@ nvim_lsp.rls.setup{
 	on_attach = custom_on_attach,
 	capabilities = lsp_status.capabilities
 }
--- local custom_on_attach_sumneko_lua = function(client, bufnr)
--- 	lsp_status.config {
--- 		select_symbol = function(cursor_pos, symbol)
--- 			if symbol.valueRange then
--- 				local value_range = {
--- 					["start"] = {
--- 						character = 0,
--- 						line = vim.fn.byte2line(symbol.valueRange[1])
--- 					},
--- 					["end"] = {
--- 						character = 0,
--- 						line = vim.fn.byte2line(symbol.valueRange[2])
--- 					}
--- 				}
 
--- 				return require("lsp-status.util").in_range(cursor_pos, value_range)
--- 			end
--- 		end
--- 	}
--- 	custom_on_attach_folding(client, bufnr)
--- end
--- nvim_lsp.sumneko_lua.setup{
--- 	on_attach = custom_on_attach_sumneko_lua,
--- 	capabilities = lsp_status.capabilities,
--- 	settings = {
--- 		Lua = {
--- 			runtime = {
--- 				version = "LuaJIT"
--- 			}
--- 		}
--- 	}
--- }
+nvim_lsp.hls.setup{
+	on_attach = custom_on_attach,
+	capabilities = lsp_status.capabilities
+}
+
+local custom_on_attach_sumneko_lua = function(client, bufnr)
+	lsp_status.config {
+		select_symbol = function(cursor_pos, symbol)
+			if symbol.valueRange then
+				local value_range = {
+					["start"] = {
+						character = 0,
+						line = vim.fn.byte2line(symbol.valueRange[1])
+					},
+					["end"] = {
+						character = 0,
+						line = vim.fn.byte2line(symbol.valueRange[2])
+					}
+				}
+
+				return require("lsp-status.util").in_range(cursor_pos, value_range)
+			end
+		end
+	}
+	custom_on_attach_folding(client, bufnr)
+end
+
+nvim_lsp.sumneko_lua.setup{
+	on_attach = custom_on_attach_sumneko_lua,
+	capabilities = lsp_status.capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT"
+			}
+		}
+	}
+}
