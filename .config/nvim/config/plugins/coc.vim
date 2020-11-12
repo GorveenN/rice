@@ -45,11 +45,14 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn  <Plug>(coc-rename)
 nmap <leader>qf  <Plug>(coc-fix-current)
+" nmap <leader>qa  :CocAction<CR>
+nmap <leader>qa  <Plug>(coc-codeaction)
+xmap <leader>qa  <Plug>(coc-codeaction-selected)
 nmap <F3> <Plug>(coc-format)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')

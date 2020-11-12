@@ -20,3 +20,4 @@ source $HOME/.config/nvim/config/plugins/vimtex.vim
 source $HOME/.config/nvim/config/plugins/vimwiki.vim
 source $HOME/.config/nvim/config/plugins/vista.vim
 
+lua require('treesitter')

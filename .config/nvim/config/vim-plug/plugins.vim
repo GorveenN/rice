@@ -70,7 +70,7 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'nvim-lua/completion-nvim'
     " Plug 'nvim-lua/diagnostic-nvim'
     " Plug 'nvim-lua/lsp-status.nvim'
-    " Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter'
     " Plug 'steelsojka/completion-buffers'
 
     " cmake
