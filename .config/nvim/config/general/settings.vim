@@ -6,7 +6,7 @@ set splitbelow
 set splitright
 syntax enable
 filetype plugin indent on
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 set smarttab
 set smartindent
 set smartcase
@@ -25,6 +25,7 @@ set nobackup
 set nowritebackup
 set nowb
 set noswapfile
+set breakindent
 nnoremap c "_c
 
 " Show next 3 lines while scrolling.
