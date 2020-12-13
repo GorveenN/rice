@@ -86,3 +86,5 @@ nnoremap <F4> :Autoformat<CR>
 nnoremap <F8> :Vista!!<CR>
 nnoremap <silent><leader>vf :Vista finder coc<CR>
 
+nnoremap <C-m> :Make<CR>
+

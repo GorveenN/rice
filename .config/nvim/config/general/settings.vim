@@ -63,3 +63,5 @@ let g:tex_flavor="latex"
 
 " set completeopt=menuone,noinsert,noselect
 " let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+" let g:python3_host_prog="~/.config/nvim/venv/bin/python3"

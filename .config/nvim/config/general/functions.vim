@@ -1,6 +1,7 @@
 " Turn spellcheck on for markdown files
 augroup auto_spellcheck
   autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_us,pl
+  autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_us,pl
 augroup END
 
 " Print to pdf

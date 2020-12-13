@@ -76,6 +76,9 @@ call plug#begin('~/.config/nvim/plugged')
     " cmake
     Plug 'cdelledonne/vim-cmake'
     Plug 'stsewd/fzf-checkout.vim'
+
+    Plug 'tpope/vim-dispatch'
+
 call plug#end()
 
 " Automatically install missing plugins on startup
