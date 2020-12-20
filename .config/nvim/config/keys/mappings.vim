@@ -75,6 +75,7 @@ nnoremap <leader>gs :G<CR>
 nnoremap <leader>gh :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
 nnoremap <leader>gc :GCheckout<CR>
+vmap <silent> u <esc>:Gdiff<cr>gv:diffget<cr><c-w><c-w>ZZ
 
 " Mapping to open NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
