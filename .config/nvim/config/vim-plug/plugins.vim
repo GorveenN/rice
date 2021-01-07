@@ -48,6 +48,10 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" Tmux/vim navigation
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'RyanMillerC/better-vim-tmux-resizer'
+
 " Others
     " kill buffer preserving layout
     Plug 'qpkorr/vim-bufkill'
