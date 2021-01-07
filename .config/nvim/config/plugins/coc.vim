@@ -53,6 +53,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " nmap <leader>qa  :CocAction<CR>
 nmap <leader>qa  <Plug>(coc-codeaction)
 xmap <leader>qa  <Plug>(coc-codeaction-selected)
+nmap <leader>cl <Plug>(coc-codelens-action)
 nmap <F3> <Plug>(coc-format)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')

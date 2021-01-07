@@ -91,7 +91,7 @@
             ],
             "initializationOptions": {
                 "haskell": {
-                    "formattingProvider": "brittany"
+                    "formattingProvider": "ormolu"
                 }
             }
         }
@@ -104,5 +104,8 @@
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
-    "suggest.maxPreviewWidth": 120
+    "suggest.maxPreviewWidth": 120,
+    "cSpell.userWords": [
+      "nondeterminiticaly"
+    ]
 }
