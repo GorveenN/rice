@@ -12,6 +12,11 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "qa", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    if client.resolved_capabilities.document_formatting then
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<F4>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    else
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<F4>", "<cmd>Autoformat<CR>", opts)
+    end
 end
 local servers = {
     "texlab",
@@ -36,7 +41,6 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Treesitter
-
 require "nvim-treesitter.configs".setup {
     ensure_installed = "maintained",
     highlight = {
@@ -59,7 +63,6 @@ require "lspconfig".sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = "LuaJIT",
                 -- Setup your lua path
                 path = vim.split(package.path, ";")
