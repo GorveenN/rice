@@ -19,19 +19,20 @@ local on_attach = function(client, bufnr)
     end
 end
 local servers = {
-    "texlab",
-    "jsonls",
-    "hls",
-    "rust_analyzer",
-    "pyls",
-    "pyright",
-    "vimls",
     "clangd",
-    "tsserver",
     "cssls",
+    "hls",
     "html",
     "jdtls",
-    "sumneko_lua"
+    "jsonls",
+    "metals",
+    "pyls",
+    "pyright",
+    "rust_analyzer",
+    "sumneko_lua",
+    "texlab",
+    "tsserver",
+    "vimls"
 }
 
 for _, lsp in ipairs(servers) do
