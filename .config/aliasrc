@@ -42,4 +42,6 @@ alias \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 
-alias makevenv="python -m venv .venv; source .venv/bin/activate; pip install jedi black rope mypy flake8 neovim --no-cache-dir"
+alias makevenv="python -m venv .venv; source .venv/bin/activate; pip install jedi black rope mypy pylint flake8 neovim --no-cache-dir"
+
+alias fixtime="sudo ntpd -qg"
