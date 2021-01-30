@@ -16,7 +16,7 @@ A,lf-git,is an extensive terminal file manager that everyone likes.
 ,xwallpaper,sets the wallpaper.
 ,ffmpeg,can record and splice video and audio on the command line.
 ,gnome-keyring,serves as the system keyring.
-,neovim,a tidier vim with some useful features
+A,neovim-git,a tidier vim with some useful features
 ,mpd,is a lightweight music daemon.
 ,mpc,is a terminal interface for mpd.
 ,mpv,is the patrician's choice video player.
@@ -107,3 +107,12 @@ A,qt5ct,
 A,qt5-styleplugins,
 ,transmission-cli,
 A,stig,
+,diff-so-fancy,
+,discord,
+,eog,
+,evince,
+,fd,
+A,flacon,
+,grub-customizer,
+,rsync,
+,pinta,
