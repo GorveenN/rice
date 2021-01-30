@@ -395,18 +395,21 @@ bindsym XF86WLAN		exec $netrefresh
 # assign [class="jetbrains*"] $ws4
 # assign [class="Spotify"] $ws8
 
+for_window [class="zoom"] no_focus
 for_window [class="Yad"] floating enable
-for_window [class=".*Spotify.*"] move to workspace $ws8
+# for_window [class=".*Spotify.*"] move to workspace $ws8
 # for_window [class=".*zoom.*"] move to workspace $ws9
 assign [class=".*Spotify.*"] $ws8
 assign [class=".*spotify.*"] $ws8
-assign [class="spotify"] $ws8
-assign [class="Spotify"] $ws8
 assign [class=".*discord.*"] $ws10
 assign [class=".*Slack.*"] $ws10
 assign [class=".*Wine.*"] $ws5
 assign [class=".*Steam.*"] $ws5
-# assign [class=".*zoom.*"] $ws9
+assign [title=".*Steam.*"] $ws5
+assign [class=".*zoom.*"] $ws9
+assign [class=".*Zoom.*"] $ws9
+assign [title=".*Zoom.*"] $ws9
+assign [title=".*zoom.*"] $ws9
 assign [class=".*Thunderbird.*"] $ws7
 assign [class="brave-browser"] $ws1
 
