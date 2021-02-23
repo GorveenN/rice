@@ -7,7 +7,10 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Essential
+    " (ﾉ◕ヮ◕)
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-rsi'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-commentary'
