@@ -21,7 +21,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 " let $FZF_DEFAULT_COMMAND = 'if [ -d .git ]; then git ls-files; else rg --files --no-ignore-vcs; fi;'
 
 " let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
