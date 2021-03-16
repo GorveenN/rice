@@ -1,22 +1,15 @@
 -- lsp
 local nvim_lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
-    require("completion").on_attach(client)
-    local opts = {noremap = true, silent = true}
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>xD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "qa", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    if client.resolved_capabilities.document_formatting then
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<F4>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    else
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<F4>", "<cmd>Autoformat<CR>", opts)
-    end
+    vim.cmd('nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>')
+    vim.cmd('nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>')
+    vim.cmd('nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>')
+    vim.cmd('nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>')
+    vim.cmd('nnoremap <silent> ca :Lspsaga code_action<CR>')
+    vim.cmd('nnoremap <silent> K :Lspsaga hover_doc<CR>')
+    -- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
+    vim.cmd('nnoremap <silent> <C-p> :Lspsaga diagnostic_jump_prev<CR>')
+    vim.cmd('nnoremap <silent> <C-n> :Lspsaga diagnostic_jump_next<CR>')
 end
 local servers = {
     "clangd",
@@ -32,7 +25,7 @@ local servers = {
     "sumneko_lua",
     "texlab",
     "tsserver",
-    "vimls"
+    -- "vimls"
 }
 
 for _, lsp in ipairs(servers) do
@@ -50,35 +43,3 @@ require "nvim-treesitter.configs".setup {
     }
 }
 
-vim.lsp.handlers["textDocument/codeAction"] = require "lsputil.codeAction".code_action_handler
-vim.lsp.handlers["textDocument/references"] = require "lsputil.locations".references_handler
-vim.lsp.handlers["textDocument/definition"] = require "lsputil.locations".definition_handler
-vim.lsp.handlers["textDocument/declaration"] = require "lsputil.locations".declaration_handler
-vim.lsp.handlers["textDocument/typeDefinition"] = require "lsputil.locations".typeDefinition_handler
-vim.lsp.handlers["textDocument/implementation"] = require "lsputil.locations".implementation_handler
-vim.lsp.handlers["textDocument/documentSymbol"] = require "lsputil.symbols".document_handler
-vim.lsp.handlers["workspace/symbol"] = require "lsputil.symbols".workspace_handler
-
-require "lspconfig".sumneko_lua.setup {
-    cmd = {"lua-language-server"},
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT",
-                -- Setup your lua path
-                path = vim.split(package.path, ";")
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {"vim"}
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-                }
-            }
-        }
-    }
-}

@@ -56,6 +56,9 @@ Plug 'honza/vim-snippets'
 Plug 'RishabhRD/popfix' " to manage underlying popup and previews
 Plug 'RishabhRD/nvim-lsputils' " for lsp codeactions'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
+
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
