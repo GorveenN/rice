@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Piotr Karpiński"
+      user-mail-address "gorveenn@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -67,5 +67,19 @@
 
 (after! company (setq company-idle-delay 0.05 company-minimum-prefix-length 1))
 
-(setq doom-leader-key "SPC"
-      doom-localleader-key "\\")
+(defun toggle-transparency ()
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (if (eq
+         (if (numberp alpha)
+             alpha
+           (cdr alpha)) ; may also be nil
+         100)
+        (set-frame-parameter nil 'alpha '(85 . 50))
+      (set-frame-parameter nil 'alpha '(100 . 100)))))
+(toggle-transparency)
+;; (global-set-key (kbd "C-c t") 'toggle-transparency)
+
+;; (custom-set-variables
+;;  '(help-at-pt-timer-delay 0.1)
+;;  '(help-at-pt-display-when-idle (quote (flymake-diagnostic)) nil (help-at-pt)))
