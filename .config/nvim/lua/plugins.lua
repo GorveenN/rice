@@ -87,6 +87,8 @@ return require('packer').startup(function(use)
 
     -- My
     use 'junegunn/fzf.vim'
+
+    -- Git
     use 'tpope/vim-fugitive'
     use 'shumphrey/fugitive-gitlab.vim'
     use 'tpope/vim-rhubarb'
@@ -96,16 +98,21 @@ return require('packer').startup(function(use)
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-dispatch'
 
-    use 'ray-x/lsp_signature.nvim'
-    use 'folke/tokyonight.nvim'
-
-    use 'mfussenegger/nvim-dap-python'
-    use 'ishan9299/nvim-solarized-lua'
-
     -- Tmux/vim navigation
     use 'christoomey/vim-tmux-navigator'
     use 'RyanMillerC/better-vim-tmux-resizer'
+
+    -- Colorschemes
     use 'marko-cerovac/material.nvim'
+    use 'folke/tokyonight.nvim'
+    use 'ishan9299/nvim-solarized-lua'
+
+    -- Lsp
+    use 'folke/lsp-trouble.nvim'
+    use 'ray-x/lsp_signature.nvim'
+
+    -- others
+    use 'mfussenegger/nvim-dap-python'
 
     require_plugin('tpope/vim-fugitive')
     require_plugin('shumphrey/fugitive-gitlab.vim')
