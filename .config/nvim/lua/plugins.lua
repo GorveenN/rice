@@ -107,6 +107,7 @@ return require('packer').startup(function(use)
 	-- Tmux/vim navigation
     use 'christoomey/vim-tmux-navigator'
     use 'RyanMillerC/better-vim-tmux-resizer'
+	use 'marko-cerovac/material.nvim'
 
 
     require_plugin('tpope/vim-fugitive')
