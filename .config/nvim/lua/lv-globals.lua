@@ -38,8 +38,8 @@ O = {
         -- @usage can be 'shellcheck'
         linter = '',
         -- @usage can be 'shfmt'
-        formatter = '',
-        autoformat = false,
+        formatter = 'shfmt',
+        autoformat = true,
         diagnostics = {virtual_text = true, signs = true, underline = true}
     },
     tsserver = {
@@ -58,14 +58,8 @@ O = {
     },
     tailwindls = {filetypes = {'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}},
     clang = {diagnostics = {virtual_text = true, signs = true, underline = true}},
-    rust = {
-		autoformat = true,
-		diagnostics = {virtual_text = true, signs = true, underline = true}
-	},
-	ruby = {
-		diagnostics = {virtualtext = true, signs = true, underline = true},
-		filetypes = {'rb', 'erb', 'rakefile'}
-	}
+    rust = {autoformat = true, diagnostics = {virtual_text = true, signs = true, underline = true}},
+    ruby = {diagnostics = {virtualtext = true, signs = true, underline = true}, filetypes = {'rb', 'erb', 'rakefile'}}
     -- css = {formatter = '', autoformat = false, virtual_text = true},
     -- json = {formatter = '', autoformat = false, virtual_text = true}
 }
