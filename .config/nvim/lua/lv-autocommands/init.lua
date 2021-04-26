@@ -1,6 +1,6 @@
 local utils = require('lv-utils')
 
-local auto_formatters = {            }
+local auto_formatters = {}
 
 local rust_autoformat = {'BufWritePre', '*.rs', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
 
@@ -28,9 +28,8 @@ utils.define_augroups({
         {'BufWinEnter', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
         {'BufRead', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
         {'BufNewFile', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
-        {'VimLeavePre', '*', 'set title set titleold='},
-		-- {'BufWritePre', '*', '%s/\s\+$//e'}
-		{'BufWritePre', '*', '%s/\\s\\+$//e'}
+        {'VimLeavePre', '*', 'set title set titleold='}, -- {'BufWritePre', '*', '%s/\s\+$//e'}
+        {'BufWritePre', '*', '%s/\\s\\+$//e'}
 
         -- {'User', 'GoyoLeave', 'lua require(\'galaxyline\').disable_galaxyline()'},
         -- {'User', 'GoyoEnter', 'lua require(\'galaxyline\').galaxyline_augroup()'},
@@ -48,15 +47,13 @@ utils.define_augroups({
     },
     _markdown = {{'FileType', 'markdown', 'setlocal wrap'}, {'FileType', 'markdown', 'setlocal spell'}},
     _tex = {
-		{'BufNewFile', '*.tex', 'setlocal spell spelllang=en_us,pl'},
-		{'BufRead', '*.tex', 'setlocal spell spelllang=en_us,pl'},
-		-- {'FileType', 'tex', 'setlocal spell spelllang=en_us,pl'},
-		-- {'FileType', 'tex', 'syntax on'},
-		{'BufWritePost', '*.tex', 'Make!'},
-	},
-	_gitcommit = {
-		{'FileType', 'gitcommit', 'setlocal spell spelllang=en_us' }
-	},
+        {'BufNewFile', '*.tex', 'setlocal spell spelllang=en_us,pl'},
+        {'BufRead', '*.tex', 'setlocal spell spelllang=en_us,pl'},
+        -- {'FileType', 'tex', 'setlocal spell spelllang=en_us,pl'},
+        -- {'FileType', 'tex', 'syntax on'},
+        {'BufWritePost', '*.tex', 'Make!'}
+    },
+    _gitcommit = {{'FileType', 'gitcommit', 'setlocal spell spelllang=en_us'}},
     _solidity = {
         {'BufWinEnter', '.sol', 'setlocal filetype=solidity'}, {'BufRead', '*.sol', 'setlocal filetype=solidity'},
         {'BufNewFile', '*.sol', 'setlocal filetype=solidity'}
@@ -68,7 +65,7 @@ utils.define_augroups({
     _buffer_bindings = {
         {'FileType', 'dashboard', 'nnoremap <silent> <buffer> q :q<CR>'},
         {'FileType', 'lspinfo', 'nnoremap <silent> <buffer> q :q<CR>'},
-        {'FileType', 'floaterm', 'nnoremap <silent> <buffer> q :q<CR>'},
+        {'FileType', 'floaterm', 'nnoremap <silent> <buffer> q :q<CR>'}
     },
     _auto_formatters = auto_formatters
 })

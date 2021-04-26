@@ -22,9 +22,7 @@ local function require_plugin(plugin)
         end
     end
     --	print(ok, err, code)
-    if ok then
-        vim.cmd("packadd " .. plugin)
-    end
+    if ok then vim.cmd("packadd " .. plugin) end
     return ok, err, code
 end
 
@@ -34,22 +32,22 @@ return require('packer').startup(function(use)
     -- Packer can manage itself as an optional plugin
     use 'wbthomason/packer.nvim'
 
-	use {'neovimhaskell/haskell-vim', opt=true}
+    use {'neovimhaskell/haskell-vim', opt = true}
 
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
 
-    use {'neovim/nvim-lspconfig', opt=true}
-    use {'glepnir/lspsaga.nvim', opt=true}
-    use {'onsails/lspkind-nvim', opt=true}
-    use {'kabouzeid/nvim-lspinstall', opt=true}
+    use {'neovim/nvim-lspconfig', opt = true}
+    use {'glepnir/lspsaga.nvim', opt = true}
+    use {'onsails/lspkind-nvim', opt = true}
+    use {'kabouzeid/nvim-lspinstall', opt = true}
 
     -- Tlescope
-    use {'nvim-lua/popup.nvim', opt=true}
-    use {'nvim-lua/plenary.nvim', opt=true}
-    use {'nvim-telescope/telescope.nvim', opt=true}
+    use {'nvim-lua/popup.nvim', opt = true}
+    use {'nvim-lua/plenary.nvim', opt = true}
+    use {'nvim-telescope/telescope.nvim', opt = true}
 
     -- Dbugging
-    use {'mfussenegger/nvim-dap', opt=true}
+    use {'mfussenegger/nvim-dap', opt = true}
 
     -- Atocomplete
     use 'hrsh7th/nvim-compe'
@@ -59,14 +57,14 @@ return require('packer').startup(function(use)
 
     -- Teesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {'windwp/nvim-ts-autotag', opt=true}
+    use {'windwp/nvim-ts-autotag', opt = true}
 
     -- Eplorer
     use 'kyazdani42/nvim-tree.lua'
     -- TODO remove when open on dir is supported by nvimtree
     -- use 'kevinhwang91/rnvimr'
 
--- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
+    -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
     use {'lewis6991/gitsigns.nvim', opt = true}
     use {'liuchengxu/vim-which-key', opt = true}
     use {'ChristianChiarulli/dashboard-nvim', opt = true}
@@ -87,28 +85,27 @@ return require('packer').startup(function(use)
     -- use 'ap/vim-css-color'
     -- use 'bronson/vim-visual-star-search'
 
-	-- My
- 	use 'junegunn/fzf.vim'
+    -- My
+    use 'junegunn/fzf.vim'
     use 'tpope/vim-fugitive'
     use 'shumphrey/fugitive-gitlab.vim'
     use 'tpope/vim-rhubarb'
 
-	-- tpope goodness (ﾉ◕ヮ◕)
+    -- tpope goodness (ﾉ◕ヮ◕)
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-dispatch'
 
-	use 'ray-x/lsp_signature.nvim'
-	use 'folke/tokyonight.nvim'
+    use 'ray-x/lsp_signature.nvim'
+    use 'folke/tokyonight.nvim'
 
-	use 'mfussenegger/nvim-dap-python'
-	use 'ishan9299/nvim-solarized-lua'
+    use 'mfussenegger/nvim-dap-python'
+    use 'ishan9299/nvim-solarized-lua'
 
-	-- Tmux/vim navigation
+    -- Tmux/vim navigation
     use 'christoomey/vim-tmux-navigator'
     use 'RyanMillerC/better-vim-tmux-resizer'
-	use 'marko-cerovac/material.nvim'
-
+    use 'marko-cerovac/material.nvim'
 
     require_plugin('tpope/vim-fugitive')
     require_plugin('shumphrey/fugitive-gitlab.vim')
@@ -116,8 +113,8 @@ return require('packer').startup(function(use)
     require_plugin('tpope/vim-surround')
     require_plugin('tpope/vim-unimpaired')
     require_plugin('tpope/vim-dispatch')
-	require_plugin('junegunn/fzf.vim')
-	require_plugin('ray-x/lsp_signature.nvim')
+    require_plugin('junegunn/fzf.vim')
+    require_plugin('ray-x/lsp_signature.nvim')
 
     require_plugin('nvim-lspconfig')
     require_plugin('lspsaga.nvim')
@@ -128,7 +125,7 @@ return require('packer').startup(function(use)
     require_plugin('telescope.nvim')
     require_plugin('nvim-dap')
     -- require_plugin('ultisnips')
-	require_plugin('friendly-snippets')
+    require_plugin('friendly-snippets')
     require_plugin('vim-vsnip')
     require_plugin('nvim-compe')
     require_plugin('vim-fugitive')
@@ -145,7 +142,7 @@ return require('packer').startup(function(use)
     require_plugin('nvim-web-devicons')
     require_plugin('galaxyline.nvim')
     require_plugin('barbar.nvim')
-	require_plugin('haskell-vim')
-	require_plugin('nvim-dap-python')
+    require_plugin('haskell-vim')
+    require_plugin('nvim-dap-python')
 end)
 
