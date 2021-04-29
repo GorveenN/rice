@@ -116,6 +116,25 @@ let g:which_key_map.g = {
       \ 'u' : [':UndoStageHunk'                    , 'undo stage hunk'],
       \ }
 
+" t for test
+let g:which_key_map.t = {
+      \ 'name' : '+test' ,
+      \ 'n' : [':TestNearest'                 , 'nearest'],
+      \ 'f' : [':TestFile'                    , 'file'],
+      \ 's' : [':TestSuite'                   , 'suite'],
+      \ 'l' : [':TestLast'                    , 'last'],
+      \ 'v' : [':TestVisit'                   , 'visit'],
+      \ }
+
+" q for quickfix
+let g:which_key_map.q = {
+      \ 'name' : '+quickfix' ,
+      \ 'n' : [':cnext'                    , 'nearest'],
+      \ 'p' : [':cprev'                    , 'file'],
+      \ 'o' : [':copen'                    , 'suite'],
+      \ }
+
+
 " l is for language server protocol
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,

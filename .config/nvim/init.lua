@@ -19,6 +19,7 @@ require('lv-barbar')
 require('lv-nvim-dap')
 require('lv-fugitive')
 require('lv-tmux-navigator')
+require('lv-test')
 -- require('lv-rnvimr')
 
 -- Which Key (Hope to replace with Lua plugin someday)

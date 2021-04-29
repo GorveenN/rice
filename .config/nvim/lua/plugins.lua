@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     use {'ChristianChiarulli/dashboard-nvim', opt = true}
     use {'windwp/nvim-autopairs', opt = true}
     use {'terrortylor/nvim-comment', opt = true}
-    use {'kevinhwang91/nvim-bqf', opt = true}
+    -- use {'kevinhwang91/nvim-bqf', opt = true}
 
     -- Color
     use {'christianchiarulli/nvcode-color-schemes.vim', opt = true}
@@ -113,6 +113,8 @@ return require('packer').startup(function(use)
 
     -- others
     use 'mfussenegger/nvim-dap-python'
+    -- test runnner
+    use 'vim-test/vim-test'
 
     require_plugin('tpope/vim-fugitive')
     require_plugin('shumphrey/fugitive-gitlab.vim')
@@ -144,7 +146,7 @@ return require('packer').startup(function(use)
     require_plugin('dashboard-nvim')
     require_plugin('nvim-autopairs')
     require_plugin('nvim-comment')
-    require_plugin('nvim-bqf')
+    -- require_plugin('nvim-bqf')
     require_plugin('nvcode-color-schemes.vim')
     require_plugin('nvim-web-devicons')
     require_plugin('galaxyline.nvim')
