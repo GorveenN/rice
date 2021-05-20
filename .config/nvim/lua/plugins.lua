@@ -34,6 +34,8 @@ return require('packer').startup(function(use)
 
     use {'neovimhaskell/haskell-vim', opt = true}
 
+    use 'folke/zen-mode.nvim'
+
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
 
     use {'neovim/nvim-lspconfig', opt = true}
