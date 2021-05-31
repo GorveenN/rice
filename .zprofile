@@ -17,6 +17,8 @@ export FILE="lf"
 export BROWSER="brave"
 export READER="evince"
 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
