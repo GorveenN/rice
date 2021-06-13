@@ -107,7 +107,8 @@ return require('packer').startup(function(use)
     -- Colorschemes
     use 'marko-cerovac/material.nvim'
     use 'folke/tokyonight.nvim'
-    use 'ishan9299/nvim-solarized-lua'
+    -- use 'ishan9299/nvim-solarized-lua'
+    use 'shaunsingh/solarized.nvim'
 
     -- Lsp
     use 'folke/lsp-trouble.nvim'
@@ -118,6 +119,12 @@ return require('packer').startup(function(use)
     -- test runnner
     use 'vim-test/vim-test'
 
+    use 'lervag/vimtex.git'
+
+    use 'mhinz/vim-crates.git'
+
+    require_plugin('mhinz/vim-crates.git')
+    require_plugin('lervag/vimtex.git')
     require_plugin('tpope/vim-fugitive')
     require_plugin('shumphrey/fugitive-gitlab.vim')
     require_plugin('tpope/vim-rhubarb')

@@ -77,3 +77,11 @@ function! FzfSpell()
     return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'down': 10 })
 endfunction
 nnoremap z= :call FzfSpell()<CR>
+
+highlight Crates ctermfg=green ctermbg=NONE cterm=NONE
+" or link it to another highlight group
+highlight link Crates WarningMsg
+
+if has('nvim')
+  autocmd BufRead Cargo.toml call crates#toggle()
+endif

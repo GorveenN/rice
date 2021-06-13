@@ -8,6 +8,7 @@ an executable
 ]] -- general
 O.auto_complete = true
 O.colorscheme = 'tokyonight'
+-- O.colorscheme = 'solarized'
 O.auto_close_tree = 0
 O.wrap_lines = true
 
