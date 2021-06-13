@@ -299,7 +299,8 @@ bindsym $mod+bracketright 	exec --no-startup-id mpc seek +10
 bindsym $mod+Shift+bracketright exec --no-startup-id mpc seek +120o-startup-id lmc forward 120
 
 # For screenshots and recording
-bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"
+# bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"
+bindsym Print               exec --no-startup-id flameshot gui
 bindsym Shift+Print 		exec --no-startup-id maimpick
 bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
@@ -419,3 +420,6 @@ exec --no-startup-id discord
 exec --no-startup-id spotify
 exec --no-startup-id $BROWSER
 exec --no-startup-id thunderbird
+
+bindsym $mod+Shift+t layout toggle stacking tabbed split
+

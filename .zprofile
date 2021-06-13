@@ -8,6 +8,7 @@
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$PATH:${HOME}/.local/share/cargo/bin"
 
 # Default programs:
 export EDITOR="nvim"
