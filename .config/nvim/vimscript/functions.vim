@@ -67,6 +67,8 @@ autocmd User GoyoLeave set laststatus=2
 " autocmd! User GoyoLeave lua require('galaxyline').galaxyline_augroup()
 
 
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 " TODO: find better place for this
 " Spell check with fzf
 function! FzfSpellSink(word)

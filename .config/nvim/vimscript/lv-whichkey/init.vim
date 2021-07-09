@@ -131,7 +131,6 @@ let g:which_key_map.q = {
       \ 'name' : '+quickfix' ,
       \ 'n' : [':cnext'                    , 'nearest'],
       \ 'p' : [':cprev'                    , 'file'],
-      \ 'o' : [':copen'                    , 'suite'],
       \ }
 
 

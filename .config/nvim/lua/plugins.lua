@@ -44,12 +44,10 @@ return require('packer').startup(function(use)
     use {'kabouzeid/nvim-lspinstall', opt = true}
 
     -- Tlescope
-    use {'nvim-lua/popup.nvim', opt = true}
-    use {'nvim-lua/plenary.nvim', opt = true}
-    use {'nvim-telescope/telescope.nvim', opt = true}
-
-    -- Dbugging
-    use {'mfussenegger/nvim-dap', opt = true}
+    use {'nvim-lua/popup.nvim'}
+    use {'nvim-lua/plenary.nvim'}
+    use {'nvim-telescope/telescope.nvim'}
+    use {"nvim-telescope/telescope-project.nvim", event = "BufRead"}
 
     -- Atocomplete
     use 'hrsh7th/nvim-compe'
@@ -68,10 +66,13 @@ return require('packer').startup(function(use)
 
     -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
     use {'lewis6991/gitsigns.nvim', opt = true}
+    -- whichkey
+    -- use {"folke/which-key.nvim"}
     use {'liuchengxu/vim-which-key', opt = true}
     use {'ChristianChiarulli/dashboard-nvim', opt = true}
     use {'windwp/nvim-autopairs', opt = true}
-    use {'terrortylor/nvim-comment', opt = true}
+    -- use {'terrortylor/nvim-comment', opt = true}
+    use {'tpope/vim-commentary', opt = true}
     -- use {'kevinhwang91/nvim-bqf', opt = true}
 
     -- Color
@@ -154,8 +155,9 @@ return require('packer').startup(function(use)
     require_plugin('vim-which-key')
     require_plugin('dashboard-nvim')
     require_plugin('nvim-autopairs')
-    require_plugin('nvim-comment')
-    -- require_plugin('nvim-bqf')
+    -- require_plugin('nvim-comment')
+    require_plugin('vim-commentary')
+    require_plugin('nvim-bqf')
     require_plugin('nvcode-color-schemes.vim')
     require_plugin('nvim-web-devicons')
     require_plugin('galaxyline.nvim')
